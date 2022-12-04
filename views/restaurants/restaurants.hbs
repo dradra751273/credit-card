@@ -1,0 +1,68 @@
+<div class="section restaurant-section">
+  <div class="container">
+
+    <!-- vertical -->
+
+    <h1 class="title">RESTAURANTS</h1>
+
+    {{#each restaurants}}
+
+      <div class="flip flip-vertical">
+        <div class="front"
+             style="background-image: url('{{this.image}}')">
+          <div class="rest-tag">{{this.name}}</div>
+        </div>
+
+        <div class="back">
+          <h2>{{this.name}}</h2>
+          <P>Site: {{this.location}}</P>
+          <p>Phone: {{this.phone}}</p>
+          <a href='{{this.google_map}}' class="text-secondary" target="_blank">
+            <p>Google Map: <i class="uil uil-map-marker"></i></p>
+          </a>
+
+          <form action="/restaurants/booking" method="post" class="booking-container">
+            <input type="hidden" value="{{this.restaurant_id}}" name="restaurant_id">
+            <input type="date" id="meeting-time"
+                   name="dating-time" value="2022-12-03T19:30"
+                   min="2022-01-01T00:00" max="2025-01-01T00:00"/>
+            <button type="button"
+                    class="btn btn-outline-warning booking-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#confirmModal"
+                    data-restaurant_id="{{this.restaurant_id}}"
+                    data-name="{{this.name}}">
+              BOOKING
+            </button>
+          </form>
+        </div>
+      </div>
+
+    {{/each}}
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-footer">
+          <form action="/restaurants/booking" method="post">
+            <input type="hidden" name="restaurant_id" class="modal-input-restaurant_id">
+            <input type="hidden" name="dating_time" class="modal-input-dating_time">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-outline-warning confirm-btn">Send Confirm</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

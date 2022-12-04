@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+
+.restaurant-section {
+  height: 100%;
+  color: #555;
+  background-color: #1f2029;
+  background-size: cover;
+  text-align: center;
+  font-family: "Roboto Mono", serif;
+  padding: 1em;
+}
+
+h1.text-shadow {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+h1.title {
+  font-size: 4em;
+  font-weight: 600;
+  color: #ffeba7;
+  margin: 3rem auto 5rem;
+}
+
+.flip > .front,
+.flip > .back {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 1s;
+  transition-property: transform, opacity;
+}
+
+.flip > .front {
+  transform: rotateY(0deg);
+}
+
+.flip > .back {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg);
+}
+
+.flip:hover > .front {
+  transform: rotateY(180deg);
+}
+
+.flip:hover > .back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.flip.flip-vertical > .back {
+  transform: rotateX(-180deg);
+}
+
+.flip.flip-vertical:hover > .front {
+  transform: rotateX(180deg);
+}
+
+.flip.flip-vertical:hover > .back {
+  transform: rotateX(0deg);
+}
+
+.flip {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 2.5rem;
+  width: 400px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.flip > .front,
+.flip > .back {
+  display: block;
+  color: white;
+  width: inherit;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 25.5rem;
+  padding: 1em 2em;
+  background: #313131;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flip > .back h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.flip > .back p, .flip > .back a {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: #b8b8b8;
+  text-decoration: none;
+  text-align: start;
+}
+
+.flip > .back a p:hover {
+  color: #ffeba7;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.booking-container {
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+input[type="date"] {
+  background-color: #fff1c1;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 9px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  /*fon*/
+}
+
+.booking-container button {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+
+.rest-tag {
+  width: 20rem;
+  position: absolute;
+  top: 8%;
+  right: -10%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  background-color: #ffeba7;
+  transform: rotate(35deg);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0.5, 0.5);
+}
