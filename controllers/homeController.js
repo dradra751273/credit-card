@@ -8,28 +8,14 @@ exports.showLoginPage = catchAsync(async (req, res, next) => {
 })
 
 
-async function nameChecker(name, users) {
-  let userNameList = undefined
-
-  if (users) {
-    userNameList = users.map(user => {
-      return user['name']
-    })
-    return userNameList.includes(name)
-  }
-
-  return false
-}
-
 async function nameAndPasswordChecker(name, password) {
   const users = await USER.find().lean()
-
-  if (!await nameChecker(name, users)) throw new AppError('wrongName', 400)
-
   const user = users.find(user => {
     return user['name'] === name
   })
-
+  // No user found
+  if (!user) throw new AppError('wrongName', 400)
+  // Wrong password
   if (user['password'] !== password) throw new AppError('wrongPassword', 400)
 }
 
