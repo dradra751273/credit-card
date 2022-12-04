@@ -21,7 +21,7 @@ const handleWrongName = (req, res) => {
 }
 
 const handleWrongPassword = (req, res) => {
-  const errorMessage = {message: 'Hi~ Do you remember the thing you don\'t eat?'}
+  const errorMessage = {message: 'Do you remember the thing you don\'t eat?'}
   res.render('./home/login', {errorMessage})
 
 }
